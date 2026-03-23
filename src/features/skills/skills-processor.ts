@@ -17,6 +17,7 @@ import { ClineSkill } from "./cline-skill.js";
 import { CodexCliSkill } from "./codexcli-skill.js";
 import { CopilotSkill } from "./copilot-skill.js";
 import { CursorSkill } from "./cursor-skill.js";
+import { DeepagentsSkill } from "./deepagents-skill.js";
 import { FactorydroidSkill } from "./factorydroid-skill.js";
 import { GeminiCliSkill } from "./geminicli-skill.js";
 import { JunieSkill } from "./junie-skill.js";
@@ -72,6 +73,7 @@ const skillsProcessorToolTargetTuple = [
   "codexcli",
   "copilot",
   "cursor",
+  "deepagents",
   "factorydroid",
   "geminicli",
   "junie",
@@ -156,10 +158,17 @@ const toolSkillFactories = new Map<SkillsProcessorToolTarget, ToolSkillFactory>(
     },
   ],
   [
+    "deepagents",
+    {
+      class: DeepagentsSkill,
+      meta: { supportsProject: true, supportsSimulated: false, supportsGlobal: false },
+    },
+  ],
+  [
     "factorydroid",
     {
       class: FactorydroidSkill,
-      meta: { supportsProject: true, supportsSimulated: true, supportsGlobal: true },
+      meta: { supportsProject: true, supportsSimulated: true, supportsGlobal: false },
     },
   ],
   [

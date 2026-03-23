@@ -14,6 +14,7 @@ import { ClaudecodeSubagent } from "./claudecode-subagent.js";
 import { CodexCliSubagent } from "./codexcli-subagent.js";
 import { CopilotSubagent } from "./copilot-subagent.js";
 import { CursorSubagent } from "./cursor-subagent.js";
+import { DeepagentsSubagent } from "./deepagents-subagent.js";
 import { FactorydroidSubagent } from "./factorydroid-subagent.js";
 import { GeminiCliSubagent } from "./geminicli-subagent.js";
 import { JunieSubagent } from "./junie-subagent.js";
@@ -63,6 +64,7 @@ const subagentsProcessorToolTargetTuple = [
   "codexcli",
   "copilot",
   "cursor",
+  "deepagents",
   "factorydroid",
   "geminicli",
   "junie",
@@ -106,7 +108,7 @@ const toolSubagentFactories = new Map<SubagentsProcessorToolTarget, ToolSubagent
     "codexcli",
     {
       class: CodexCliSubagent,
-      meta: { supportsSimulated: false, supportsGlobal: false, filePattern: "*.toml" },
+      meta: { supportsSimulated: false, supportsGlobal: true, filePattern: "*.toml" },
     },
   ],
   [
@@ -124,10 +126,17 @@ const toolSubagentFactories = new Map<SubagentsProcessorToolTarget, ToolSubagent
     },
   ],
   [
+    "deepagents",
+    {
+      class: DeepagentsSubagent,
+      meta: { supportsSimulated: false, supportsGlobal: false, filePattern: "*.md" },
+    },
+  ],
+  [
     "factorydroid",
     {
       class: FactorydroidSubagent,
-      meta: { supportsSimulated: true, supportsGlobal: true, filePattern: "*.md" },
+      meta: { supportsSimulated: true, supportsGlobal: false, filePattern: "*.md" },
     },
   ],
   [
