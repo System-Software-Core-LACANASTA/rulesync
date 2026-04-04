@@ -1,4 +1,4 @@
-<p align="center">
+8005a8baa6ffb72c47d6e35f44c0e5d78b456a2d<p align="center">
   <img src="images/logo.jpg" alt="Rulesync Logo" width="600">
 </p>
 
